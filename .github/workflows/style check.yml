@@ -20,7 +20,7 @@ jobs:
     - name: Code check
       run: |
         check_result=`cargo fmt --all -- --check`
-        if [[ $check_result == "" ]]; then
+        if [[ $check_result == "\n" ]]; then
           echo "Style check failed. The differences are below:";
           echo $check_result;
           exit;
