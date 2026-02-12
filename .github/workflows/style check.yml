@@ -23,7 +23,7 @@ jobs:
         if [[ $check_result == "\n" ]]; then
           echo "Style check failed. The differences are below:";
           echo $check_result;
-          exit;
+          exit 1;
         else
           echo "Style check succeeded."
         fi
