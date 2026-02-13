@@ -1,0 +1,31 @@
+name: Style check
+
+on:
+  push:
+    branches:
+    - developments
+    - development/**
+    - main
+  pull_request:
+    branches:
+    - developments
+
+jobs:
+  style:
+    name: Style check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Code check
+      run: |
+        check_result=`cargo fmt --all -- --check`
+        if [[ $check_result == "\n" ]]; then
+          echo "Style check failed. The differences are below:";
+          echo $check_result;
+          exit 1;
+        else
+          echo "Style check succeeded."
+        fi

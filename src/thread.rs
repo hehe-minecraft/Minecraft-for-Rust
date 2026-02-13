@@ -49,7 +49,7 @@ impl Thread {
     /// When the inner thread panics, the caller thread remains. For example:
     /// ```
     /// use main::thread::Thread;
-    /// let thread = Thread::new(|| panic!("The inner thread panics!"));
+    /// let thread = Thread::spawn(|| panic!("The inner thread panics!"));
     /// thread.join(); // It would be safe here.
     /// ```
     pub fn join(self) {

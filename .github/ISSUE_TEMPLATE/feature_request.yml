@@ -1,0 +1,34 @@
+name: Feature Request
+description: Suggest a feature request for the repository. Please use English.
+title: "[feat] "
+labels:
+- "issue: [feat]"
+
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thank you for helping us to improve the repository!
+      __Before you start, please make sure there's no similar issue reported.__
+      If you have already implemented the feature, you can turn to [pull request](https://github.com/hehe-minecraft/Minecraft-for-Rust/pulls), where it's more likely to adopt your request. You don't have to submit it in both issues and pull requests.
+- type: textarea
+  attributes:
+    label: Description
+    description: What new feature or change you want? Please tell us the requirements with a clear and detailed description.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Additional Files
+    description: You can provide additional files that may help us to understand your reuirements.
+  validations:
+    required: false
+- type: checkboxes
+  attributes:
+    label: Before Submitting
+    description: Please make sure you've checked the following before submitting the issue. Issues which don't meet the requirements will be closed.
+    options:
+    - label: I've checked there's no similar issue reported.
+      required: true
+    - label: I've ticked every checkbox without carefully reading.
+      required: false
