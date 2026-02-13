@@ -1,0 +1,58 @@
+name: Bug Report
+description: Tell us the bug you've found on our repository. Please use English.
+title: "[bug] "
+labels:
+- "issue: [bug]"
+
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thank you for helping us to improve the repository!
+      __Before you start, please make sure there's no similar issue reported.__
+      __Only bugs on the main branch (where you get the release) is available.__
+- type: dropdown
+  attributes:
+    label: Version
+    description: On which version you've found the bug?
+    options:
+    - 0.0.0
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Description
+    description: Please describe the bug you've found.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Reproduction
+    description: Please describe the steps to reproduce the bug.
+    placeholder: |
+      1.
+      2.
+      3.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Expected Result
+    description: What do you expect to happen?
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Additional Files
+    description: You can provide additional files that may help us to understand the bug.
+  validations:
+    required: false
+- type: checkboxes
+  attributes:
+    label: Before Submitting
+    description: Please make sure you've checked the following before submitting the issue. Issues which don't meet the requirements will be closed.
+    options:
+    - label: I've checked there's no similar issue reported.
+      required: true
+    - label: I've ticked every checkbox without carefully reading.
+      required: false
