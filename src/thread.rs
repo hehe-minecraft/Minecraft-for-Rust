@@ -112,6 +112,15 @@ impl ThreadPool {
     /// Wait until all inner threads have stopped.
     ///
     /// Inner threads will finish **all** remaining job before they stops.
+    ///
+    /// This function is safe to use.
+    /// When any of the inner thread panics, the caller thread remains. For example:
+    /// ```
+    /// use main::thread::ThreadPool;
+    /// let thread_pool = ThreadPool::with_size(2);
+    /// thread_pool.send(|| panic!("One of the thread panics"));
+    /// thread_pool.join(); // It would be safe here.
+    /// ```
     pub fn join(self) {
         for _ in 0..self.threads.len() {
             self.sender.send(Message::Terminate).unwrap();
